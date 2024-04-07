@@ -1,14 +1,16 @@
-#include "alist.h"
 #include <iostream>
+#include "alist.h"
+
 using namespace std;
-template <typename T> struct alist {
-    T item;
-    alist<T>* next;
-    alist<T>* prev;
+
+ struct alist {
+    int item;
+    alist* next;
+    alist* prev;
 };
 
-template <typename T> void pushback(alist<T> *&h,alist<T> *&t, T x){
-    alist<T> *r = new alist<T>;
+ void pushback(alist *&h,alist *&t, int x){
+    alist *r = new alist;
 
     r -> item = x;
 
@@ -23,11 +25,12 @@ template <typename T> void pushback(alist<T> *&h,alist<T> *&t, T x){
     t = r;
 
 }
-template <typename T> void print(alist<T> *&h,alist<T> *&t){
-    alist<T> *r = h;
+ void print(alist *&h,alist *&t){
+    alist *r = h;
     while (r) {
         cout << r -> item << ' ';
         r = r -> next;
     }
     cout << endl;
 }
+

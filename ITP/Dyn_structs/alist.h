@@ -1,9 +1,9 @@
 #ifndef ALIST_H
 #define ALIST_H
-template <typename T> struct alist;
+ struct alist;
 
-template <typename T> void pushback(alist<T> *&h,alist<T> *&t, T x);
+ void pushback(alist *&h,alist *&t, int x);
 
-template <typename T> void print(alist<T> *&h,alist<T> *&t);
+ void print(alist *&h,alist *&t);
 
 #endif // ALIST_H
