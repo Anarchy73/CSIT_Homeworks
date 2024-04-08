@@ -14,4 +14,6 @@
 
  void print(alist *&h,alist *&t);
 
+ int del_nod(alist *&h, alist *&t, alist *&r);
+
 #endif // ALIST_H

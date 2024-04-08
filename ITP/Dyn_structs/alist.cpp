@@ -65,3 +65,24 @@ void insert_after(alist *&h, alist *&t, alist *r, int x){
     cout << endl;
 }
 
+int del_nod(alist *&h, alist *&t, alist *&r){
+    int x = r -> item;
+    if (r==h && r==t){
+        t = h = NULL;
+    } else if ( r == h){
+        h = r -> next;
+        h -> prev = NULL;
+
+    } else if ( r == t){
+        t = r -> prev;
+        t -> next = NULL;
+
+    } else {
+        r -> next -> prev = r -> prev;
+        r -> prev -> next = r -> next;
+
+    }
+    delete r;
+    return x;
+}
+
