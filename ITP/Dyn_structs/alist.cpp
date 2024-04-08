@@ -21,6 +21,21 @@ using namespace std;
     t = r;
 
 }
+void pushforward(alist *&h,alist *&t, int x){
+    alist *r = new alist;
+
+    r -> item = x;
+    r -> prev = NULL;
+
+    if (!h && !t){
+        r -> next = NULL;
+        t = r;
+    } else {
+        r -> next = h;
+        h -> prev = r;
+    }
+    h = r;
+}
 void insert_after(alist *&h, alist *&t, alist *r, int x){
     alist *p = new alist;
     p -> item = x;
@@ -41,7 +56,7 @@ void insert_after(alist *&h, alist *&t, alist *r, int x){
 
 }
 
- void input_list(alist *&h, alist *&t){
+ int input_list(alist *&h, alist *&t){
 
     int n,x;
 
@@ -52,7 +67,7 @@ void insert_after(alist *&h, alist *&t, alist *r, int x){
         cin >> x;
         pushback(h,t,x);
     }
-
+    return n;
  }
 
 
