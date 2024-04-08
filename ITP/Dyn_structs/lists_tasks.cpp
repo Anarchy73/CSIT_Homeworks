@@ -48,7 +48,39 @@ void task2(){
     }
     print(ah,ata);
 }
+void task3(){
+    alist *ah = NULL, *ata = NULL,*ittmp,*itj;
+    int n,x;
+    n = input_list(ah,ata);
+
+    for (alist *iti = ah -> next; iti; ){
+
+        itj = iti;
+        iti = iti -> next;
+
+        for (; itj!=ah && ((itj -> item) < (itj -> prev -> item)); itj = itj -> prev){
+
+            ittmp = itj -> prev;
+            if (itj -> prev == ah){
+
+                x = del_nod(ah,ata,itj);
+
+                pushforward(ah,ata,x);
+
+                break;
+            } else {
+
+                insert_after(ah,ata,itj -> prev -> prev,del_nod(ah,ata,itj));
+
+            }
+            itj = ittmp;
+
+        }
+
+    }
+    print(ah,ata);
+}
 int main(){
     setlocale(LC_ALL, "Russian");
-    task2();
+    task3();
 }

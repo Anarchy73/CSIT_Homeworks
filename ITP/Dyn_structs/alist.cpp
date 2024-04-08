@@ -56,7 +56,7 @@ void insert_after(alist *&h, alist *&t, alist *r, int x){
 
 }
 
- int input_list(alist *&h, alist *&t){
+int input_list(alist *&h, alist *&t){
 
     int n,x;
 
