@@ -61,3 +61,25 @@ void inorder(tree *root){
     }
 
 }
+
+void preorder(tree *root){
+    if (root){
+        cout << root -> item << ' ';
+        preorder(root -> left);
+        preorder(root -> right);
+    }
+
+}
+
+
+void create_pbt(tree *&root, int n){
+    int x;
+    if (n > 0){
+        cin >> x;
+        root = node(x);
+        int nl = n/2;
+        int rl = n - nl - 1;
+        create(root -> left, nl);
+        create(root -> right, nr);
+    }
+}
