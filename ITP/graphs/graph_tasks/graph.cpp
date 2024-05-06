@@ -45,18 +45,15 @@ void slipknot(graph &s, int x, int y, double w = 1.0, bool orient = false){
 
 void graph_input(graph &s, bool orient = false){
     string str;
-    int x,y;
+    int x,y, w = 1.0;
     fstream f;
-    f.open("temp.txt");
+    f.open("./temp.txt", fstream::in | fstream::out);
 
-    while(cin.peek() != '\n'){
-        getline(cin,str);
-        f << str;
-        f >> x;
-        while(f.peek() != EOF){
-            f >> y;
-            slipknot(s,x,y,orient,orient);
-        }
+
+    while(cin){
+
+        cin >> x >> y >> w;
+        slipknot(s,x,y,w,orient);
     }
     f.close();
 }
