@@ -2,7 +2,10 @@
 
 
 \usepackage{minted} % Модуль для вставки кода в документ
+\setminted[rs]{fontsize=\small,style=bw,breaklines=true}
 \setminted{fontsize=\footnotesize}
+\usepackage{xcolor} % to access the named colour LightGray
+\definecolor{LightGray}{gray}{0.95}
 
 \usepackage[english, russian]{babel}
 \usepackage{fontspec}
@@ -23,3 +26,7 @@
 \linespread{1.5} % Межстрочный интервал
 \setlength{\parindent}{1.25cm} %Абзацный отступ
 
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
