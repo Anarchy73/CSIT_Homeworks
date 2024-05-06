@@ -1,5 +1,8 @@
 #include <iostream>
 #include "graph.h"
+#include <string>
+#include <fstream>
+
 
 void slipknot(graph &s, int x, int y, double w = 1.0, bool orient = false){
     bool fl = true;
@@ -21,7 +24,6 @@ void slipknot(graph &s, int x, int y, double w = 1.0, bool orient = false){
             auto it_y = s.find(y);
             it_y->second.erase(it_y->second.begin());
         }
-
     } else if (fl){
         s[x].push_back(make_pair(y,w));
         auto it_y = s.find(y);
@@ -37,9 +39,23 @@ void slipknot(graph &s, int x, int y, double w = 1.0, bool orient = false){
         if (fl){
             s[y].push_back(make_pair(x,w));
         }
-
     }
+}
 
+void graph_input(graph &s, bool orient = false){
+    string str;
+    int x,y;
+    fstream f;
+    f.open("temp.txt");
 
-
+    while(cin.peek() != '\n'){
+        getline(cin,str);
+        f << str;
+        f >> x;
+        while(f.peek() != EOF){
+            f >> y;
+            slipknot(s,x,y,orient,orient);
+        }
+    }
+    f.close();
 }

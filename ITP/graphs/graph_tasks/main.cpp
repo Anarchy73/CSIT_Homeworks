@@ -6,7 +6,7 @@ int main()
 {
     graph s;
 
-
+    graph_input(s, false);
 
     return 0;
 }
