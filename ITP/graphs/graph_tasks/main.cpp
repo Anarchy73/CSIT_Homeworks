@@ -23,6 +23,11 @@ void task1(){ // Выход из ввода Ctrl + c
 
 }
 
+void task2(){
+
+
+}
+
 int main()
 {
     SetConsoleOutputCP( 65001 );
@@ -36,7 +41,9 @@ int main()
     case 1:
         task1();
         break;
-
+    case 2:
+        task2();
+        break;
     }
 
     return 0;
