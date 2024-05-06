@@ -1,12 +1,34 @@
+
+
+
 #include <iostream>
 #include "graph.h"
+#include <windows.h>
+
+
 using namespace std;
+
+
+void task1(){
+
+
+}
 
 int main()
 {
-    graph s;
+    SetConsoleOutputCP( 65001 );
 
-    graph_input(s, false);
+    int t;
+
+    cout << "Выберите задание (1-4):";
+    cin >> t;
+
+    switch(t){
+    case 1:
+        task1;
+        break;
+
+    }
 
     return 0;
 }

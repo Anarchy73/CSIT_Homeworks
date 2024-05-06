@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 
+using namespace std;
 
 void slipknot(graph &s, int x, int y, double w = 1.0, bool orient = false){
     bool fl = true;
