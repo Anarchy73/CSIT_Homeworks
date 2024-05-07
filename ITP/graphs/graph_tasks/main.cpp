@@ -48,7 +48,39 @@ void task3(){
         cout << counter << endl;
     }
 }
+void task4(){
+    graph s;
+    map<int,int> used;
+    bool sv = true;
 
+    graph_input(s,false);
+
+
+    dfs(s,used,s.begin()->first);
+
+
+    for(auto it_x = s.begin(); it_x!=s.end();it_x++){
+        if (!used.count(it_x->first)){
+            sv = false;
+            break;
+        }
+    }
+    if (sv){
+        cout << "Граф связный";
+    } else{
+        cout << "Граф несвязный";
+    }
+
+/*
+4
+1 2 1
+2 3 1
+3 4 1
+4 1 1
+5 6 1
+*/
+
+}
 int main()
 {
     SetConsoleOutputCP( 65001 );
@@ -67,6 +99,9 @@ int main()
         break;
     case 3:
         task3();
+        break;
+    case 4:
+        task4();
         break;
     }
 
