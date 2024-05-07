@@ -51,9 +51,17 @@ void graph_input(graph &s, bool orient = false){
 
 
     while(cin){
-
         cin >> x >> y >> w;
         slipknot(s,x,y,w,orient);
     }
     f.close();
+}
+
+void dfs(graph &s, map<int,int> &used, int x){
+    used[x] = 1;
+    auto it_x = s.find(x);
+    for (auto it_y = it_x->second.begin(); it_y != it_x->second.end(); it_y++){
+        if (!used.count(it_y->first))
+            dfs(s,used,it_y->first);
+    }
 }

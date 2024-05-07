@@ -13,4 +13,6 @@ void slipknot(graph &s, int x, int y, double w , bool orient);
 
 void graph_input(graph &s, bool orient);
 
+void dfs(graph &s);
+
 #endif // GRAPH_H_INCLUDED
