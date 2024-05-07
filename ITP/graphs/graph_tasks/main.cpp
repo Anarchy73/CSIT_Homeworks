@@ -36,15 +36,18 @@ int pop_q (stque *&h,stque *&t){
     return i;
 }
 
-void dfs(graph &s,  std::map<int,int> &used, int x){
+void bfs(graph &s,  std::map<int,int> &used, int x){
     used[x] = 1;
     stque *h = NULL, *t = NULL;
     push_q(h,t,x);
     while(h){
         int x = pop_q(h,t);
+
         for (auto it_y = s.find(x)->second.begin(); it_y != s.find(x)->second.end(); it_y++){
-            used[it_y->first] = 1;
-            push_q(q,t,it_y->first);
+            if (!used[it_y->first]){
+                used[it_y->first] = 1;
+                push_q(h,t,it_y->first);
+            }
         }
     }
 }
@@ -122,6 +125,41 @@ void task4(){
 */
 
 }
+
+void task5(){
+    graph s;
+
+    bool check;
+    graph_input(s,true);
+
+    for (auto it_x = s.begin(); it_x != s.end(); it_x++){
+        check = true;
+        map<int,int> used;
+        bfs(s,used,it_x->first);
+
+        for (auto it_y = s.begin(); it_y != s.end(); it_y++){
+
+            if (!used[it_y->first]){
+                check = false;
+                break;
+            }
+        }
+
+        if (check) cout << it_x->first << endl;
+    }
+/*
+5
+1 2 1
+2 1 1
+1 4 1
+1 5 1
+2 6 1
+2 7 1
+6 7 1
+7 6 1
+*/
+
+}
 int main()
 {
     SetConsoleOutputCP( 65001 );
@@ -143,6 +181,9 @@ int main()
         break;
     case 4:
         task4();
+        break;
+    case 5:
+        task5();
         break;
     }
 
