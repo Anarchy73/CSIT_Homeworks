@@ -8,6 +8,47 @@
 
 using namespace std;
 
+struct stque{
+    int item;
+    stque *next;
+};
+
+void push_q(stque *&h,stque*&t,int x){
+    stque *r = new stque;
+    r -> item = x;
+    r -> next = NULL;
+    if (!h && !t)
+        h = t = r;
+    else {
+        t -> next = r;
+        t = r;
+    }
+
+}
+int pop_q (stque *&h,stque *&t){
+    stque *r = h;
+    int i = h -> item;
+    h = h -> next;
+    if (!h){
+        t = NULL;
+    }
+    delete r;
+    return i;
+}
+
+void dfs(graph &s,  std::map<int,int> &used, int x){
+    used[x] = 1;
+    stque *h = NULL, *t = NULL;
+    push_q(h,t,x);
+    while(h){
+        int x = pop_q(h,t);
+        for (auto it_y = s.find(x)->second.begin(); it_y != s.find(x)->second.end(); it_y++){
+            used[it_y->first] = 1;
+            push_q(q,t,it_y->first);
+        }
+    }
+}
+
 
 void task1(){ // Выход из ввода Ctrl + c
     graph s;
